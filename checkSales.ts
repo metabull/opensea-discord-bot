@@ -49,7 +49,7 @@ async function main() {
       occurred_after: hoursAgo.toString(), 
       collection_slug: process.env.COLLECTION_SLUG!,
       asset_contract_address: process.env.CONTRACT_ADDRESS!
-  })).then((resp) => resp.json());
+  }),{ headers: { "X-API-KEY": "92e381646ba74b96a7286707eeb448eb"}}).then((resp) => resp.json());
 
   await Promise.all(
     openSeaResponse?.asset_events?.reverse().map(async (sale: any) => {
